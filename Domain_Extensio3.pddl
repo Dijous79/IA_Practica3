@@ -1,0 +1,43 @@
+(define (domain Planification)
+  (:requirements :adl :typing :fluents)
+  (:types exercice day nivell - obj)
+
+  (:predicates 
+	(precursor ?ex - exercice ?ex2 - exercice)
+	(preparador ?ex - exercice ?ex2 - exercice)
+	(pendent ?ex - exercice)
+	(assignat ?d - day ?ex - exercice)
+  (lastInDay ?d - day ?ex - exercice)
+
+  )
+  (:functions
+  (nivellO ?ex - exercice)
+  (nivellF ?ex - exercice)
+  (nivellD ?d - day ?ex - exercice)
+	(idDia ?d - day)
+  (idNivell ?n - nivell)
+  (numExercicisDia ?d - day)
+  )
+
+  (:action assignaExercici
+    :parameters (?d - day ?ex - exercice ?n - nivell)
+    :precondition (and (not (assignat ?d ?ex)) (<= (idNivell ?n) (nivellF ?ex)) (< (numExercicisDia ?d) 6)
+                  (or (= (idNivell ?n) (nivellO ?ex))
+                      (exists (?d2 - day)
+                        (and
+                          (< (idDia ?d2) (idDia ?d))
+                          (and (assignat ?d2 ?ex) (= (+ (nivellD ?d2 ?ex) 1) (idNivell ?n)))
+                        )
+                      )
+                  )
+                  (forall (?exAux - exercice) 
+                        (and (imply (preparador ?exAux ?ex) (assignat ?d ?exAux))
+                             (imply (precursor ?exAux ?ex) (and (assignat ?d ?exAux) (lastInDay ?d ?exAux)))
+                        )
+                      )
+    )
+    :effect (and (assignat ?d ?ex) (assign (nivellD ?d ?ex) (idNivell ?n)) (forall (?exAux - exercice) (not(lastInDay ?d ?exAux)))
+            (when (= (idNivell ?n) (nivellF ?ex)) (not(pendent ?ex))) (lastInDay ?d ?ex) (increase (numExercicisDia ?d) 1)
+    )
+  )
+)

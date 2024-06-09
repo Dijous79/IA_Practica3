@@ -1,0 +1,66 @@
+(define (problem Base)
+	(:domain Planification)
+	(:objects 	d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 - day
+		    	ex1 ex2 ex3 - exercice
+				n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivell
+	)
+	 
+	(:init
+		(= (nivellO ex1) 1)
+		(= (nivellF ex1) 1)
+		(= (nivellO ex2) 1)
+		(= (nivellF ex2) 4)
+		(= (nivellO ex3) 9)
+		(= (nivellF ex3) 10)
+
+
+		(preparador ex1 ex2)
+		(preparador ex3 ex2)
+
+		(pendent ex1)
+		(pendent ex2)
+		(pendent ex3)
+
+		(= (idDia d1) 1)
+		(= (idDia d2) 2)
+		(= (idDia d3) 3)
+		(= (idDia d4) 4)
+		(= (idDia d5) 5)
+		(= (idDia d6) 6)
+		(= (idDia d7) 7)
+		(= (idDia d8) 8)
+		(= (idDia d9) 9)
+		(= (idDia d10) 10)
+		(= (idDia d11) 11)
+		(= (idDia d12) 12)
+		(= (idDia d13) 13)
+		(= (idDia d14) 14)
+		(= (idDia d15) 15)
+
+		(= (idNivell n1) 1)
+		(= (idNivell n2) 2)
+		(= (idNivell n3) 3)
+		(= (idNivell n4) 4)
+		(= (idNivell n5) 5)
+		(= (idNivell n6) 6)
+		(= (idNivell n7) 7)
+		(= (idNivell n8) 8)
+		(= (idNivell n9) 9)
+		(= (idNivell n10) 10)
+		(nivellPrevi n1 n1)
+		(nivellPrevi n1 n2)
+		(nivellPrevi n2 n3)
+		(nivellPrevi n3 n4)
+		(nivellPrevi n4 n5)
+		(nivellPrevi n5 n6)
+		(nivellPrevi n6 n7)
+		(nivellPrevi n7 n8)
+		(nivellPrevi n8 n9)
+		(nivellPrevi n9 n10)
+	)
+
+	(:goal
+    (forall (?ex - exercice) (not(pendent ?ex))
+	)
+  )
+)
