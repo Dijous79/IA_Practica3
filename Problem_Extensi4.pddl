@@ -1,58 +1,38 @@
 (define (problem Base)
 	(:domain Planification)
 	(:objects 	d0 d1 d2 d3 d4 d5 d6 d7 d8 d9 d10 d11 d12 d13 d14 d15 - day
-		    	ex1 ex2 ex3 ex4 ex5 ex6 ex7 ex8 ex9 ex10  - exercice
-				n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 n11 n12 n13 n14 n15 n16 - nivell
+		    	ex1 ex2 ex3 ex4 ex5 - exercice
+				n1 n2 n3 n4 n5 n6 n7 n8 n9 n10 - nivell
 	)
 	 
 	(:init
 		(= (nivellO ex1) 1)
 		(= (nivellF ex1) 1)
-		(= (nivellO ex2) 10)
-		(= (nivellF ex2) 13)
+		(= (nivellO ex2) 1)
+		(= (nivellF ex2) 10)
 		(= (nivellO ex3) 1)
-		(= (nivellF ex3) 6)
+		(= (nivellF ex3) 5)
 		(= (nivellO ex4) 1)
-		(= (nivellF ex4) 2)
+		(= (nivellF ex4) 10)
 		(= (nivellO ex5) 1)
-		(= (nivellF ex5) 3)
-		(= (nivellO ex6) 1)
-		(= (nivellF ex6) 6)
-		(= (nivellO ex7) 1)
-		(= (nivellF ex7) 5)
-		(= (nivellO ex8) 5)
-		(= (nivellF ex8) 9)
-		(= (nivellO ex9) 4)
-		(= (nivellF ex9) 6)
-		(= (nivellO ex10) 1)
-		(= (nivellF ex10) 2)
+		(= (nivellF ex5) 5)
+
 
 		(preparador ex1 ex3)
-		(preparador ex2 ex5)
-		(precursor ex10 ex1)
-		(precursor ex10 ex4)
+		(preparador ex1 ex2)
 
-		(= (tempsXexercici ex1) 10)
-		(= (tempsXexercici ex2) 20)
-		(= (tempsXexercici ex3) 30)
-		(= (tempsXexercici ex4) 15)
-		(= (tempsXexercici ex5) 10)
-		(= (tempsXexercici ex6) 10)
-		(= (tempsXexercici ex7) 25)
-		(= (tempsXexercici ex8) 10)
-		(= (tempsXexercici ex9) 10)
-		(= (tempsXexercici ex10) 10)
+		(= (tempsXexercici ex1) 70)
+		(= (tempsXexercici ex2) 15)
+		(= (tempsXexercici ex3) 10)
+		(= (tempsXexercici ex4) 5)
+		(= (tempsXexercici ex5) 5)
 
 		(pendent ex1)
 		(pendent ex2)
 		(pendent ex3)
 		(pendent ex4)
 		(pendent ex5)
-		(pendent ex6)
-		(pendent ex7)
-		(pendent ex8)
-		(pendent ex9)
-		(pendent ex10)
+
 
 
 		(= (idDia d0) 0)
@@ -97,12 +77,6 @@
 		(= (idNivell n8) 8)
 		(= (idNivell n9) 9)
 		(= (idNivell n10) 10)
-		(= (idNivell n11) 11)
-		(= (idNivell n12) 12)
-		(= (idNivell n13) 13)
-		(= (idNivell n14) 14)
-		(= (idNivell n15) 15)
-		(= (idNivell n16) 16)
 	)
 
 	(:goal

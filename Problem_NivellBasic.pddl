@@ -6,10 +6,10 @@
 	(:init
 		(= (nivellO ex1) 1)
 		(= (nivellF ex1) 3)
-		(= (nivellO ex2) 1)
+		(= (nivellO ex2) 6)
 		(= (nivellF ex2) 10)
-		(= (nivellO ex3) 7)
-		(= (nivellF ex3) 9)
+		(= (nivellO ex3) 1)
+		(= (nivellF ex3) 10)
 		(= (nivellO ex4) 1)
 		(= (nivellF ex4) 7)
 		(= (nivellO ex5) 3)
@@ -18,8 +18,7 @@
 		(= (nivellF ex6) 5)
 
 		(preparador ex1 ex2)
-		(preparador ex3 ex2)
-		(preparador ex4 ex2)
+		(preparador ex2 ex3)
 		(preparador ex5 ex6)
 
 		(pendent ex1)
